@@ -53,6 +53,9 @@ public class JpaMain {
                 System.out.println("member.name = " + member.getName());
             }
 
+            //em.flush -- 쓰기 지연 sql 저장소에 쌓여있는 db sql 적용(commit 은 따로 필요)
+            //em.detach -- 준영속(영속석 컨텍스트에서 빠지는 형태)
+
 
             tx.commit();
         }catch (Exception e) {

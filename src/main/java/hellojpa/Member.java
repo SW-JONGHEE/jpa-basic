@@ -6,9 +6,18 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
+@SequenceGenerator(
+        name = "member_seq_generator",
+        sequenceName = "member_seq",
+        initialValue = 1,
+        allocationSize = 50 //next value 호출할때 1~50까지 가져와 그다음부터 insert시 메모리에서 가져와 쓴다. (동시성 이슈도 없고 좋음)
+)
 public class Member {
 
     @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY) // db에 위임
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "member_seq_generator")
     private Long id;
 
     @Column(name = "name", nullable = false) //컬럼 매핑

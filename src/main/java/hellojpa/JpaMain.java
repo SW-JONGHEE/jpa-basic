@@ -44,14 +44,14 @@ public class JpaMain {
 *             애플리케이션이 필요한 데이터만 db에서 불러오려면 결국 검색 조건이 포함된 sql이 필요 --> 관계형에 종속적일 수 밖에 없다.
 *             그래서! sql을 추상화한 jpql이라는 객체 지향 쿼리 언어를 제공
 */
-            List<Member> result = em.createQuery("select m from Member as m", Member.class)
-                    .setFirstResult(1)
-                    .setMaxResults(10)
-                    .getResultList();
-
-            for(Member member: result) {
-                System.out.println("member.name = " + member.getName());
-            }
+//            List<Member> result = em.createQuery("select m from Member as m", Member.class)
+//                    .setFirstResult(1)
+//                    .setMaxResults(10)
+//                    .getResultList();
+//
+//            for(Member member: result) {
+//                System.out.println("member.name = " + member.getName());
+//            }
 
             //em.flush -- 쓰기 지연 sql 저장소에 쌓여있는 db sql 적용(commit 은 따로 필요)
             //em.detach -- 준영속(영속석 컨텍스트에서 빠지는 형태)

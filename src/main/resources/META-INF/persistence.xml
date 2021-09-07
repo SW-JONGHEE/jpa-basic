@@ -17,7 +17,8 @@
 
             <!--batch_size를 주면 값만큼 모아서 한번에 디비에 sql문을 날리고 commit을 친다-->
             <property name="hibernate.jdbc.batch_size" value="10"/>
-            <!--<property name="hibernate.hbm2ddl.auto" value="create" />-->
+            <!--<property name="hibernate.hbm2ddl.auto" value="create" />--> <!--drop create-->
+            <property name="hibernate.hbm2ddl.auto" value="update" /> <!--운영에서는 create, create-drop, update(lock이 될수 있음.) 사용 xxxxxxx -->
         </properties>
     </persistence-unit>
 </persistence>
